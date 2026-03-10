@@ -1,38 +1,44 @@
 import streamlit as st
 
-st.set_page_config(page_title="Interpolation", page_icon="📈", layout="centered")
+st.set_page_config(page_title="Interpolation", page_icon="📊", layout="centered")
 
-# --------- Custom Styling ----------
+# ---------- Modern CSS Styling ----------
 st.markdown("""
 <style>
 
+.stApp{
+background: linear-gradient(180deg,#EAF3FF,#D4E6FF,#F4F9FF);
+font-family: 'Segoe UI', sans-serif;
+}
+
 .main-title{
-font-size:48px;
+font-size:50px;
 font-weight:700;
 text-align:center;
-color:#1F4E8C;
-margin-bottom:5px;
+color:#1A3A6E;
+margin-bottom:8px;
 }
 
 .subtitle{
 text-align:center;
 font-size:20px;
-color:#4A4A4A;
+color:#3B4A6B;
 margin-bottom:40px;
 }
 
 .section-card{
-background-color:#F7FAFF;
-padding:28px;
-border-radius:12px;
-margin-bottom:20px;
-box-shadow:0px 4px 12px rgba(0,0,0,0.08);
+background:white;
+padding:30px;
+border-radius:14px;
+margin-bottom:25px;
+box-shadow:0px 6px 18px rgba(0,0,0,0.08);
+border-left:6px solid #3A7BD5;
 }
 
 .section-title{
 font-size:24px;
 font-weight:600;
-color:#1F4E8C;
+color:#1A3A6E;
 margin-bottom:10px;
 }
 
@@ -48,98 +54,97 @@ margin-top:40px;
 }
 
 .chat-btn{
-background-color:#1F4E8C;
+background: linear-gradient(90deg,#3A7BD5,#00B4DB);
 color:white;
-padding:14px 30px;
+padding:15px 32px;
 font-size:18px;
 border:none;
-border-radius:8px;
+border-radius:10px;
 cursor:pointer;
+box-shadow:0px 4px 10px rgba(0,0,0,0.15);
 }
 
 .chat-btn:hover{
-background-color:#163B6B;
+transform:scale(1.05);
 }
 
 </style>
 """, unsafe_allow_html=True)
 
-# --------- Title ----------
+# ---------- Title ----------
 st.markdown('<div class="main-title">Interpolation</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">An Introduction to Numerical Interpolation</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Understanding Numerical Interpolation</div>', unsafe_allow_html=True)
 
-# --------- Section 1 ----------
+# ---------- Section 1 ----------
 st.markdown("""
 <div class="section-card">
 <div class="section-title">What is Interpolation?</div>
 <div class="section-text">
-Interpolation is a fundamental concept in numerical analysis used to estimate
-unknown values that lie between known data points. When we collect data in
-experiments or observations, the values are often recorded only at specific
-points. However, real-world analysis frequently requires values in between
-those recorded measurements.
+Interpolation is a mathematical technique used to estimate unknown values
+between known data points. In many scientific and real-world situations,
+data is only available at specific intervals. Interpolation helps construct
+a smooth and meaningful estimate of values that fall between these points.
 
-Interpolation provides mathematical techniques to construct these missing
-values in a logical and accurate way. By using known data points, interpolation
-creates a continuous function that approximates the behaviour of the data.
+By analysing existing data and applying mathematical formulas,
+interpolation creates a continuous function that approximates the trend
+of the data. This makes it possible to predict intermediate values
+with reasonable accuracy.
 </div>
 </div>
 """, unsafe_allow_html=True)
 
-# --------- Section 2 ----------
+# ---------- Section 2 ----------
 st.markdown("""
 <div class="section-card">
 <div class="section-title">Why is Interpolation Important?</div>
 <div class="section-text">
-Interpolation plays an essential role in many areas of science and technology.
-In engineering and scientific computing, measurements are rarely available for
-every possible value. Interpolation helps fill these gaps and allows
-researchers to make predictions based on existing data.
+In real-world applications, measurements are often limited and cannot be
+recorded for every possible value. Interpolation allows scientists and
+engineers to estimate missing values and analyse patterns within the data.
 
-It is widely used in weather prediction, computer graphics, machine learning,
-economic forecasting, and data analysis. Without interpolation, many systems
-that rely on continuous data modelling would not function effectively.
+It plays a crucial role in fields such as scientific computing,
+engineering simulations, weather forecasting, economics, and
+data science. By filling the gaps between known data points,
+interpolation helps create models that represent real-world
+phenomena more accurately.
 </div>
 </div>
 """, unsafe_allow_html=True)
 
-# --------- Section 3 ----------
+# ---------- Section 3 ----------
 st.markdown("""
 <div class="section-card">
 <div class="section-title">Common Types of Interpolation</div>
 <div class="section-text">
-Different interpolation methods are used depending on the number of data
-points and the required accuracy. Some of the most commonly used techniques
-include:
 
-• Linear Interpolation – Estimates values using a straight line between two known points.  
-• Polynomial Interpolation – Uses higher-degree polynomials to fit multiple data points.  
-• Lagrange Interpolation – Constructs a polynomial that passes exactly through all given data points.  
+• Linear Interpolation – Uses a straight line between two known points.  
+• Polynomial Interpolation – Fits a polynomial curve through multiple data points.  
+• Lagrange Interpolation – Constructs a polynomial that passes through all given points.
 
-Each method has its own advantages and is chosen based on the nature of the
-problem being solved.
+Different interpolation methods are used depending on the number
+of data points available and the level of accuracy required.
 </div>
 </div>
 """, unsafe_allow_html=True)
 
-# --------- Section 4 ----------
+# ---------- Section 4 ----------
 st.markdown("""
 <div class="section-card">
 <div class="section-title">Applications of Interpolation</div>
 <div class="section-text">
-Interpolation is applied in many real-world scenarios. Engineers use it to
-estimate structural behaviour between measured points, while scientists apply
-it to approximate values in experimental datasets.
+Interpolation is widely used in engineering design, scientific experiments,
+data analysis, and computer graphics. It helps approximate unknown values
+in datasets, create smooth curves in graphical applications, and estimate
+missing information in research studies.
 
-It is also essential in computer graphics for smooth animations, in GPS
-systems for location estimation, and in data science for analysing incomplete
-datasets. Because of its ability to approximate unknown values, interpolation
-has become a critical tool in modern computational methods.
+Modern technologies such as GPS navigation, animation systems,
+and predictive data models rely heavily on interpolation
+to generate continuous and meaningful results.
 </div>
 </div>
 """, unsafe_allow_html=True)
 
-# --------- Chatbot Button ----------
+# ---------- Chatbot ----------
 chatbot_url = "https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/03/06/13/20260306133552-TPFY7SEH.json"
 
 st.markdown(
